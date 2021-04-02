@@ -4,7 +4,7 @@ const renderHTMLElement = (elementType: string, elementAttributes: { [key: strin
   return childElement
 }
 
-const renderTextElement = (text: string) => {
+const renderTextElement = (text: string): Text => {
   return document.createTextNode(text);
 }
 
