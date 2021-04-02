@@ -6,9 +6,9 @@ const buildDOMTree = (element: ICreateElement | string, parent: HTMLElement): vo
     const { elementType, attributes, children } = element
     const childElement = renderHTMLElement(elementType, attributes)
     parent.appendChild(childElement)
-    children && buildDOMTree(children, childElement)
+    children?.length && children.forEach((child: ICreateElement | string) => buildDOMTree(child, childElement))
   } else if (typeof element === 'string') {
-    renderTextElement(parent, element)
+    parent.appendChild(renderTextElement(element))
   }
 
 }
